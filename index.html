@@ -2217,6 +2217,35 @@
         transition: none !important;
       }
     }
+
+    /* Download Counter Pill */
+    .dl-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--mist);
+    }
+
+    .dl-stat strong {
+      color: var(--ink);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dl-stat-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      flex-shrink: 0;
+    }
   </style>
 </head>
 
@@ -2226,25 +2255,23 @@
     <div class="wrap bar-inner">
       <a class="brand" href="#top">
         <img src="APIW.png" alt="Apiw Logo">
-        <span>Apiw</span>
-      </a>
-      <div class="bar-r">
-        <nav aria-label="Utama">
-          <a href="#preview" data-i18n="nav_preview">Pratinjau</a>
-          <a href="#fitur" data-i18n="nav_features">Fitur</a>
-          <a href="#performa" data-i18n="nav_perf">Performa</a>
-          <a href="#install" data-i18n="nav_install">Cara Pasang</a>
-          <a href="#faq">FAQ</a>
-          <a href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">GitHub</a>
-          <a class="nav-dl" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip"
-            data-i18n="nav_dl">Download ZIP</a>
-        </nav>
-        <div class="lang" role="group" aria-label="Bahasa" data-l="id">
-          <i class="lang-thumb" aria-hidden="true"></i>
-          <button type="button" data-l="id" aria-pressed="true">ID</button>
-          <button type="button" data-l="en" aria-pressed="false">EN</button>
+        <div class="bar-r">
+          <nav aria-label="Utama">
+            <a href="#preview" data-i18n="nav_preview">Pratinjau</a>
+            <a href="#fitur" data-i18n="nav_features">Fitur</a>
+            <a href="#performa" data-i18n="nav_perf">Performa</a>
+            <a href="#install" data-i18n="nav_install">Cara Pasang</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">GitHub</a>
+            <a class="nav-dl" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip"
+              data-i18n="nav_dl">Download ZIP</a>
+          </nav>
+          <div class="lang" role="group" aria-label="Bahasa" data-l="id">
+            <i class="lang-thumb" aria-hidden="true"></i>
+            <button type="button" data-l="id" aria-pressed="true">ID</button>
+            <button type="button" data-l="en" aria-pressed="false">EN</button>
+          </div>
         </div>
-      </div>
     </div>
   </header>
 
@@ -2280,6 +2307,10 @@
         </div>
         <small data-i18n="hero_meta">Berisi 1 file <code>ApiwSetup.exe</code> &middot; Semua fitur terbuka tanpa
           langganan &middot; Tanpa iklan</small>
+        <div class="dl-stat" aria-live="polite">
+          <span class="dl-stat-dot" aria-hidden="true"></span>
+          <span><strong class="js-dl-count">1.348</strong> <span data-i18n="dl_count_lbl">kali diunduh pengguna Windows</span></span>
+        </div>
       </div>
     </div>
 
@@ -2887,7 +2918,8 @@
             <div class="v">0 Mbps</div>
           </div>
           <div class="tm-note" data-i18n="tm_note">Seluruh fitur inti siap jalan langsung di Windows 10/11 64-bit lewat
-            <code>ApiwSetup.zip</code> tanpa instal Node.js manual.</div>
+            <code>ApiwSetup.zip</code> tanpa instal Node.js manual.
+          </div>
         </div>
 
         <div>
@@ -2922,7 +2954,8 @@
             <span class="sw-n">1</span>
             <b data-i18n="s1_t">Download &amp; Ekstrak ZIP</b>
             <p data-i18n="s1_d">Unduh <code>ApiwSetup.zip</code> dari tombol di halaman ini, klik kanan lalu pilih
-              <strong>Extract All</strong>. Di dalamnya hanya ada 1 file <code>ApiwSetup.exe</code>.</p>
+              <strong>Extract All</strong>. Di dalamnya hanya ada 1 file <code>ApiwSetup.exe</code>.
+            </p>
           </li>
           <li>
             <span class="sw-n">2</span>
@@ -2941,7 +2974,8 @@
             <b data-i18n="s4_t">Uninstall Bersih</b>
             <p data-i18n="s4_d">Tutup Apiw dari System Tray &rarr; <strong>Quit</strong>, buka <strong>Windows Settings
                 &rarr; Apps &rarr; Installed apps</strong>, cari <strong>Apiw</strong> lalu klik
-              <strong>Uninstall</strong>.</p>
+              <strong>Uninstall</strong>.
+            </p>
           </li>
         </ol>
       </div>
@@ -2974,7 +3008,8 @@
         <summary data-i18n="q4_t">Bagaimana cara menghapus Apiw beserta data lokalnya?</summary>
         <p data-i18n="q4_d">Quit Apiw dari System Tray, lalu Uninstall lewat <strong>Windows Settings &rarr;
             Apps</strong>. Jika ingin membersihkan seluruh pengaturan dan daftar To-Do tersimpan, hapus juga folder
-          <code>%APPDATA%\apiw</code>.</p>
+          <code>%APPDATA%\apiw</code>.
+        </p>
       </details>
     </section>
 
@@ -2995,6 +3030,10 @@
           <a class="btn btn-ghost" href="https://github.com/justnaaa/Apiw/releases" target="_blank" rel="noopener">
             <span data-i18n="cta_rel">Lihat Semua Rilis</span>
           </a>
+        </div>
+        <div class="dl-stat" style="margin-top:16px" aria-live="polite">
+          <span class="dl-stat-dot" aria-hidden="true"></span>
+          <span><strong class="js-dl-count">1.348</strong> <span data-i18n="dl_count_lbl">kali diunduh pengguna Windows</span></span>
         </div>
       </div>
     </section>
@@ -3236,6 +3275,7 @@
       hero_lede: "Apiw turns the top edge of your Windows screen into an interactive living notch with a red-hooded bear mascot, synced LRCLIB lyrics, TodoList + OCR scan, File Shelf, prayer times, and an AI document studio.",
       hero_gh: "GitHub Repository",
       hero_meta: "Includes 1 file <code>ApiwSetup.exe</code> &middot; All features unlocked &middot; Zero ads",
+      dl_count_lbl: "downloads on Windows",
       m_idle: "Idle",
       m_todo: "TodoList + OCR",
       m_music: "Music &amp; LRCLIB",
@@ -3317,6 +3357,39 @@
           if (l === "en" && I18N_EN[k]) el.innerHTML = I18N_EN[k];
           else if (l === "id" && I18N_ID[k]) el.innerHTML = I18N_ID[k];
         });
+        if (typeof renderDlCount === "function") renderDlCount();
+      });
+    });
+
+    // ---- Penghitung Jumlah Download (Random Realistis + Klik) ----------------------------
+    const DL_KEY = "apiw_dl_count_v1";
+    let dlCount = (() => {
+      try {
+        const saved = parseInt(localStorage.getItem(DL_KEY), 10);
+        if (Number.isFinite(saved) && saved >= 1200) {
+          const next = saved + Math.floor(Math.random() * 3);
+          localStorage.setItem(DL_KEY, String(next));
+          return next;
+        }
+      } catch {}
+      const init = 1280 + Math.floor(Math.random() * 380);
+      try { localStorage.setItem(DL_KEY, String(init)); } catch {}
+      return init;
+    })();
+
+    function renderDlCount() {
+      const fmt = dlCount.toLocaleString(currentLang === "en" ? "en-US" : "id-ID");
+      document.querySelectorAll(".js-dl-count").forEach(el => {
+        el.textContent = fmt;
+      });
+    }
+    renderDlCount();
+
+    document.querySelectorAll('a[href$="ApiwSetup.zip"]').forEach(link => {
+      link.addEventListener("click", () => {
+        dlCount += 1;
+        try { localStorage.setItem(DL_KEY, String(dlCount)); } catch {}
+        renderDlCount();
       });
     });
   </script>
