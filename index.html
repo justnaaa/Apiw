@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apiw — Living Notch & Asisten Dokumen untuk Windows</title>
+  <meta name="description" content="Apiw adalah living notch ringan untuk Windows 10/11 dengan maskot beruang interaktif, musik + lirik sinkron LRCLIB, TodoList + OCR, Shelf, jadwal sholat, dan asisten dokumen AI." />
+  <link rel="icon" type="image/png" href="APIW.png" />
+  <style>
+    :root {
+      --bg: #07070b;
+      --card: rgba(255, 255, 255, 0.045);
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --red: #ef4444;
+      --green: #22c55e;
+      --purple: #8b5cf6;
+      --sky: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: radial-gradient(circle at 50% -10%, rgba(239, 68, 68, 0.16), transparent 48%),
+                  radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 7, 11, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px; gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; }
+    .brand img {
+      width: 32px; height: 32px; border-radius: 9px; object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25);
+    }
+    .brand span em { font-style: normal; color: var(--red); }
+    .nav-links { display: flex; align-items: center; gap: 22px; font-size: 13.5px; color: var(--muted); }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff; font-weight: 700; font-size: 13px;
+      padding: 8px 16px; border-radius: 999px;
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.35);
+      transition: transform 0.15s, filter 0.15s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); filter: brightness(1.08); }
+
+    /* HERO */
+    .hero { padding: 66px 0 48px; text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
+      padding: 6px 14px 6px 8px; border-radius: 999px;
+      font-size: 12.5px; color: #e4e4e7; margin-bottom: 22px;
+    }
+    .hero-badge img { width: 22px; height: 22px; border-radius: 6px; object-fit: cover; }
+    .hero h1 {
+      font-size: clamp(32px, 5.2vw, 54px);
+      line-height: 1.12; font-weight: 850; letter-spacing: -0.025em;
+      max-width: 780px; margin: 0 auto 16px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, #fff 20%, #fca5a5 60%, #ef4444 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p.lead {
+      max-width: 640px; margin: 0 auto 28px;
+      color: var(--muted); font-size: 16.5px;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 14px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff; font-weight: 700; font-size: 15px;
+      padding: 13px 26px; border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(239, 68, 68, 0.36);
+      transition: transform 0.16s, filter 0.16s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.06); border: 1px solid var(--border);
+      color: #f4f4f5; font-weight: 600; font-size: 14.5px;
+      padding: 13px 22px; border-radius: 14px;
+      transition: background 0.16s;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); }
+    .hero-meta { font-size: 12.5px; color: #71717a; }
+
+    /* INTERACTIVE DEMO NOTCH */
+    .demo-stage {
+      margin: 38px auto 0; max-width: 720px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+      border: 1px solid var(--border); border-radius: 26px;
+      padding: 0 24px 26px; position: relative;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65);
+    }
+    .demo-notch-wrap { display: flex; justify-content: center; margin-bottom: 22px; }
+    .demo-notch {
+      background: #020204; border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: none; border-radius: 0 0 24px 24px;
+      padding: 12px 20px; min-width: 240px; max-width: 560px; width: 100%;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.75);
+      transition: all 0.25s ease;
+    }
+    .demo-top {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12.5px; color: #e4e4e7; margin-bottom: 10px;
+    }
+    .demo-ring {
+      display: inline-flex; align-items: center; gap: 6px; font-weight: 700;
+    }
+    .demo-ring-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2.5px solid var(--green); display: inline-flex;
+      align-items: center; justify-content: center; font-size: 8px;
+    }
+    .demo-body {
+      display: flex; align-items: center; gap: 14px; text-align: left;
+      min-height: 66px;
+    }
+    .demo-mascot {
+      width: 54px; height: 54px; border-radius: 14px; flex-shrink: 0;
+      object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .demo-title { font-size: 15px; font-weight: 700; color: #fff; }
+    .demo-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+    .demo-switchers {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    }
+    .demo-chip {
+      border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05);
+      color: #d4d4d8; font-size: 12px; font-weight: 600;
+      padding: 6px 13px; border-radius: 999px; cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .demo-chip.active, .demo-chip:hover {
+      background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.6); color: #fff;
+    }
+
+    /* SECTIONS */
+    section { padding: 56px 0; }
+    .sec-head { text-align: center; margin-bottom: 34px; }
+    .sec-kicker {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #fca5a5; margin-bottom: 8px;
+    }
+    .sec-title { font-size: clamp(24px, 3.6vw, 34px); font-weight: 800; letter-spacing: -0.02em; }
+    .sec-desc { color: var(--muted); max-width: 600px; margin: 8px auto 0; font-size: 15px; }
+
+    .grid-3 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 22px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: rgba(255, 255, 255, 0.18); transform: translateY(-2px); }
+    .card-icon {
+      width: 38px; height: 38px; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 13px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
+    .card p { font-size: 13.5px; color: var(--muted); }
+
+    /* INSTALL STEPS */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .step-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 22px;
+    }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(239, 68, 68, 0.22); border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #fecaca; font-weight: 800; font-size: 13px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .step-card h3 { font-size: 15.5px; margin-bottom: 6px; }
+    .step-card p { font-size: 13.5px; color: var(--muted); }
+    code {
+      background: rgba(255, 255, 255, 0.09); padding: 1px 6px;
+      border-radius: 6px; font-family: Consolas, monospace; font-size: 12.5px; color: #e4e4e7;
+    }
+
+    /* FAQ / PRIVACY */
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 15px; padding: 18px 20px;
+    }
+    .faq-item h4 { font-size: 15px; margin-bottom: 5px; color: #fff; }
+    .faq-item p { font-size: 13.5px; color: var(--muted); }
+
+    /* DOWNLOAD CTA */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.16), rgba(139, 92, 246, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px; padding: 40px 26px; text-align: center;
+    }
+    .cta-box img {
+      width: 64px; height: 64px; border-radius: 16px; object-fit: cover;
+      margin-bottom: 14px; border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .cta-box h2 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; margin-bottom: 8px; }
+    .cta-box p { color: #d4d4d8; max-width: 520px; margin: 0 auto 22px; font-size: 14.5px; }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 28px 0 40px; text-align: center;
+      font-size: 13px; color: #71717a;
+    }
+    footer a:hover { color: #e4e4e7; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .demo-body { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <img src="APIW.png" alt="Apiw Icon" />
+        <span>Apiw<em>Notch</em></span>
+      </a>
+      <div class="nav-links">
+        <a href="#fitur">Fitur</a>
+        <a href="#install">Cara Pasang</a>
+        <a href="#faq">FAQ & Privasi</a>
+        <a href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <a class="nav-cta" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip">Download ZIP</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <img src="APIW.png" alt="Apiw" />
+          <span>Gratis &amp; Terbuka · Windows 10 &amp; 11 (64-bit)</span>
+        </div>
+
+        <h1>Bagian atas layar Windows Anda, <span class="accent">lebih hidup &amp; produktif.</span></h1>
+        <p class="lead">
+          <strong>Apiw</strong> adalah living notch ringan dengan maskot beruang berjaket merah, kontrol musik &amp; lirik sinkron LRCLIB,
+          <strong>TodoList + OCR</strong>, file shelf, jadwal sholat, dan asisten dokumen AI.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download ApiwSetup.zip
+          </a>
+          <a class="btn-secondary" href="https://github.com/justnaaa/Apiw/releases" target="_blank" rel="noopener">
+            Semua Rilis GitHub
+          </a>
+          <a class="btn-secondary" href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">
+            Source Code
+          </a>
+        </div>
+        <div class="hero-meta">Berisi 1 file <code>ApiwSetup.exe</code> · Semua fitur terbuka · Tanpa iklan</div>
+
+        <div class="demo-stage">
+          <div class="demo-notch-wrap">
+            <div class="demo-notch" id="demo-notch">
+              <div class="demo-top">
+                <span class="demo-ring"><span class="demo-ring-dot">⚡</span> Apiw Active</span>
+                <span>Wed 11 Nov · 18:30</span>
+              </div>
+              <div class="demo-body">
+                <img class="demo-mascot" src="APIW.png" alt="Apiw Mascot" />
+                <div>
+                  <div class="demo-title" id="demo-title">TodoList · Langsung ketik &amp; Scan OCR</div>
+                  <div class="demo-sub" id="demo-sub">Klik + Add Task langsung mengetik, atau drop gambar/PDF tugas untuk dilist otomatis 1 per 1.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-switchers">
+            <button class="demo-chip active" data-mode="todo">TodoList + OCR</button>
+            <button class="demo-chip" data-mode="music">Musik &amp; Lirik LRCLIB</button>
+            <button class="demo-chip" data-mode="docs">Document Studio AI</button>
+            <button class="demo-chip" data-mode="prayer">Sholat &amp; Halo Malaikat</button>
+            <button class="demo-chip" data-mode="battery">Baterai &amp; Charging</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fitur">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-kicker">Fitur Lengkap</div>
+          <h2 class="sec-title">Semua hal penting dalam satu tarikan kursor.</h2>
+          <p class="sec-desc">Arahkan mouse ke notch di atas layar untuk membuka, atau geser 2 jari di touchpad untuk berpindah slide.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">🐻</div>
+            <h3>Maskot Apiw Ekspresif</h3>
+            <p>Beruang putih berjaket merah berkedip saat idle, melambai saat ada notifikasi, memakai halo emas saat waktu sholat, dan memberi tanda lelah saat baterai ≤ 20%.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎵</div>
+            <h3>Musik &amp; Lirik Sinkron</h3>
+            <p>Terhubung ke Spotify, YouTube/Chrome, Edge, dan VLC via Windows GSMTC lengkap dengan lirik berjalan otomatis dari LRCLIB.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">✅</div>
+            <h3>TodoList + Scan OCR</h3>
+            <p>Klik <code>+ Add Task</code> langsung ketik di tempat, klik baris tugas untuk menandai selesai, tombol <code>Clear</code> sekali klik, dan ekstrak daftar tugas dari gambar/PDF/DOCX.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📄</div>
+            <h3>Asisten Dokumen &amp; Voice</h3>
+            <p>Analisa dokumen Word/Excel/PDF/Scan, revisi teks langsung di Word &amp; Notepad (dengan Diff &amp; Undo), export file <code>.docx</code> rapi, serta obrolan suara berbahasa Indonesia.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📅</div>
+            <h3>Kalender Mini, Sholat &amp; Fokus</h3>
+            <p>Kartu kalender bulan berjalan, jadwal sholat offline (Kemenag, MWL, dll.), pengingat minum air, dan timer Pomodoro terintegrasi.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📥</div>
+            <h3>File Shelf &amp; Auto Screenshot</h3>
+            <p>Drop file/folder dengan animasi masuk ke Shelf, seret keluar kapan saja, plus pratinjau otomatis 2–3 tangkapan layar terbaru.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-kicker">Cara Pemasangan</div>
+          <h2 class="sec-title">Cukup 3 langkah mudah.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Download &amp; Ekstrak ZIP</h3>
+            <p>Klik tombol <strong>Download ApiwSetup.zip</strong>, lalu ekstrak file tersebut di Windows Explorer. Di dalamnya hanya berisi 1 file <code>ApiwSetup.exe</code>.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Jalankan Installer</h3>
+            <p>Klik dua kali <code>ApiwSetup.exe</code>. Jika muncul layar biru Windows SmartScreen, pilih <strong>More info → Run anyway</strong>.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Atur Sesuai Selera</h3>
+            <p>Buka ikon lonceng / System Tray → <strong>Settings</strong>. Untuk fitur AI Gemini, masukkan API key Anda sendiri di tab <strong>AI &amp; Voice</strong>.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">×</div>
+            <h3>Cara Uninstall</h3>
+            <p>Tutup Apiw dari System Tray → <strong>Quit</strong>, lalu buka <strong>Windows Settings → Apps → Installed apps</strong>, cari <strong>Apiw</strong> dan klik <strong>Uninstall</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-kicker">Pertanyaan &amp; Privasi</div>
+          <h2 class="sec-title">Transparan &amp; aman di perangkat Anda.</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h4>Apakah perlu API key untuk menjalankan Apiw?</h4>
+            <p>Tidak wajib. Musik, lirik LRCLIB, TodoList + OCR lokal, File Shelf, Pomodoro, Kalender, jadwal Sholat, dan animasi maskot berjalan tanpa API key. API key hanya diperlukan jika Anda ingin memakai asisten AI Gemini/OpenAI.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Apakah API key saya aman?</h4>
+            <p>Di dalam paket installer dan repositori, API key selalu dalam kondisi kosong (<code>""</code>). Saat Anda mengisi API key, data tersebut hanya tersimpan secara lokal di folder konfigurasi komputer Anda sendiri dan tidak dikirim ke pihak lain selain penyedia AI yang Anda pilih.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Apakah saya perlu instal Python atau Node.js secara terpisah?</h4>
+            <p>Jika mengunduh rilis <code>ApiwSetup.zip</code> dari halaman Releases, semua komponen sudah dibundel agar langsung siap pakai di Windows 10/11 64-bit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <img src="APIW.png" alt="Apiw Logo" />
+          <h2>Siap pasang Apiw di Windows Anda?</h2>
+          <p>Ringan, bersih, tanpa batasan fitur berbayar, dan sumber terbuka di GitHub.</p>
+          <div class="hero-actions" style="margin-bottom:0">
+            <a class="btn-primary" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip">
+              Download ApiwSetup.zip
+            </a>
+            <a class="btn-secondary" href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">
+              Buka Repositori GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Apiw · Living Notch for Windows · <a href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">github.com/justnaaa/Apiw</a>
+    </div>
+  </footer>
+
+  <script>
+    const modes = {
+      todo: {
+        title: 'TodoList · Langsung ketik & Scan OCR',
+        sub: 'Klik + Add Task langsung mengetik, atau drop gambar/PDF tugas untuk dilist otomatis 1 per 1.'
+      },
+      music: {
+        title: 'Musik & Lirik Sinkron (LRCLIB)',
+        sub: 'Deteksi lagu otomatis dari Spotify/Browser lengkap dengan lirik berjalan di kapsul notch.'
+      },
+      docs: {
+        title: 'Apiw Document Studio & Voice AI',
+        sub: 'Analisa dokumen panjang, revisi langsung Word/Excel/Notepad, export .docx rapi, & baca PDF scan.'
+      },
+      prayer: {
+        title: 'Pengingat Sholat · Berkedip 3× & Halo Malaikat',
+        sub: 'Saat masuk waktu sholat, notch berkedip emas 3 kali dan Apiw muncul dengan cincin halo di atas kepala.'
+      },
+      battery: {
+        title: 'Status Ring Petir & Peringatan Baterai Lemah',
+        sub: 'Animasi energi tipis saat mengecas, dan ekspresi lelah "Butuh Cas!" saat baterai ≤ 20%.'
+      }
+    };
+    document.querySelectorAll('.demo-chip').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.demo-chip').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const m = modes[btn.dataset.mode];
+        if (m) {
+          document.getElementById('demo-title').textContent = m.title;
+          document.getElementById('demo-sub').textContent = m.sub;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
