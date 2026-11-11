@@ -25,7 +25,7 @@
   - Membaca halaman aktif Word, Excel, Notepad, dan file PDF/PDF Scan/DOCX/XLSX.
   - Jendela **Document Studio** untuk analisa lengkap, perbandingan revisi (*Before → After*), **Undo**, dan **Export `.DOCX`**, plus ngobrol suara (`Alt+Space`).
 - **Today Widgets, Sholat, Air & Pomodoro:** Kalender mini bulan berjalan, animasi tipis saat mengecas, jadwal sholat offline, pengingat minum air, dan timer Pomodoro.
-- **File Shelf & Auto Screenshot:** Drop file/folder dengan animasi masuk ke Shelf dan pratinjau otomatis 2–3 screenshot terbaru.
+- **File Shelf & Auto Screenshot:** Drop file/folder dengan animasi masuk ke Shelf, pratinjau otomatis hingga 4 screenshot terbaru, dan tombol **Copy All** untuk menyalin semuanya sekaligus.
 
 ---
 
