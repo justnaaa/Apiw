@@ -516,9 +516,18 @@
     }
 
     @keyframes islandGulp {
-      0% { transform: scale(1); }
-      45% { transform: scale(1.045, 1.07); box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.75), 0 14px 36px rgba(34, 197, 94, 0.35); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.045, 1.07);
+        box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.75), 0 14px 36px rgba(34, 197, 94, 0.35);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     /* 3x Golden Flash on Prayer Time */
@@ -527,9 +536,22 @@
     }
 
     @keyframes goldFlash {
-      0%, 100% { box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .95); }
-      16%, 50%, 84% { box-shadow: 0 0 0 2px #fbbf24, 0 0 32px 6px rgba(245, 158, 11, 0.85); }
-      33%, 66% { box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.25), 0 0 8px rgba(245, 158, 11, 0.2); }
+
+      0%,
+      100% {
+        box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .95);
+      }
+
+      16%,
+      50%,
+      84% {
+        box-shadow: 0 0 0 2px #fbbf24, 0 0 32px 6px rgba(245, 158, 11, 0.85);
+      }
+
+      33%,
+      66% {
+        box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.25), 0 0 8px rgba(245, 158, 11, 0.2);
+      }
     }
 
     .ly {
@@ -604,7 +626,11 @@
       color: #fff;
       letter-spacing: -0.01em;
     }
-    .hdr-title em { font-style: normal; color: var(--red); }
+
+    .hdr-title em {
+      font-style: normal;
+      color: var(--red);
+    }
 
     .hdr-center {
       display: inline-flex;
@@ -612,7 +638,12 @@
       gap: 6px;
       font-size: 10.5px;
     }
-    .hdr-center b { color: #fff; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+    .hdr-center b {
+      color: #fff;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
 
     .hdr-right {
       min-width: 72px;
@@ -622,7 +653,10 @@
     }
 
     /* Carousel Arrows + 6 Bottom Page Dots matching real Apiw */
-    .l-chrome { z-index: 4; pointer-events: none; }
+    .l-chrome {
+      z-index: 4;
+      pointer-events: none;
+    }
 
     .notch-arrow {
       position: absolute;
@@ -639,9 +673,19 @@
       cursor: pointer;
       transition: background .15s, color .15s;
     }
-    .notch-arrow:hover { background: rgba(255, 255, 255, .2); color: #fff; }
-    .notch-arrow.prev { left: 6px; }
-    .notch-arrow.next { right: 6px; }
+
+    .notch-arrow:hover {
+      background: rgba(255, 255, 255, .2);
+      color: #fff;
+    }
+
+    .notch-arrow.prev {
+      left: 6px;
+    }
+
+    .notch-arrow.next {
+      right: 6px;
+    }
 
     .notch-dots {
       position: absolute;
@@ -652,6 +696,7 @@
       align-items: center;
       gap: 5px;
     }
+
     .notch-dots i {
       display: block;
       width: 4.5px;
@@ -660,6 +705,7 @@
       background: rgba(255, 255, 255, .28);
       transition: width .25s var(--spring), background .2s;
     }
+
     .notch-dots i.on {
       width: 16px;
       background: #fff;
@@ -681,24 +727,44 @@
       display: block;
       overflow: visible;
     }
+
     .apiw-bear-eye {
       transform-box: fill-box;
       transform-origin: center;
       filter: drop-shadow(0 0 3px rgba(147, 197, 253, .95));
       animation: previewEyeBlink 4.2s infinite ease-in-out;
     }
+
     .apiw-bear-wave {
       transform-box: fill-box;
       transform-origin: left bottom;
       animation: bearWave 1.4s ease-in-out infinite alternate;
     }
+
     @keyframes bearWave {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-16deg) translateY(-1px); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(-16deg) translateY(-1px);
+      }
     }
+
     @keyframes previewEyeBlink {
-      0%, 44%, 50%, 92%, 100% { transform: scaleY(1); }
-      47%, 95% { transform: scaleY(0.12); }
+
+      0%,
+      44%,
+      50%,
+      92%,
+      100% {
+        transform: scaleY(1);
+      }
+
+      47%,
+      95% {
+        transform: scaleY(0.12);
+      }
     }
 
     /* 1. IDLE LAYER */
@@ -768,6 +834,7 @@
       cursor: pointer;
       transition: background .15s, color .15s, border-color .15s;
     }
+
     .todo-icon-circle:hover,
     .todo-icon-circle.on {
       background: rgba(56, 189, 248, .22);
@@ -788,8 +855,15 @@
       cursor: pointer;
       transition: background .15s, color .15s;
     }
-    .todo-clear-btn:hover { background: rgba(239, 68, 68, .42); color: #fff; }
-    .todo-clear-btn[hidden] { display: none; }
+
+    .todo-clear-btn:hover {
+      background: rgba(239, 68, 68, .42);
+      color: #fff;
+    }
+
+    .todo-clear-btn[hidden] {
+      display: none;
+    }
 
     .todo-sub-lbl {
       font-size: 10.5px;
@@ -820,7 +894,11 @@
       white-space: nowrap;
       transition: background .15s, border-color .15s;
     }
-    .todo-add-btn:hover { background: rgba(239, 68, 68, .3); border-color: rgba(239, 68, 68, .55); }
+
+    .todo-add-btn:hover {
+      background: rgba(239, 68, 68, .3);
+      border-color: rgba(239, 68, 68, .55);
+    }
 
     .todo-right-card {
       background: rgba(255, 255, 255, .04);
@@ -840,8 +918,15 @@
       max-height: 66px;
       overflow-y: auto;
     }
-    .todo-list::-webkit-scrollbar { width: 3px; }
-    .todo-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .28); border-radius: 99px; }
+
+    .todo-list::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .todo-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .28);
+      border-radius: 99px;
+    }
 
     .t-item {
       display: flex;
@@ -855,7 +940,9 @@
       transition: background .18s;
     }
 
-    .t-item:hover { background: rgba(255, 255, 255, .13); }
+    .t-item:hover {
+      background: rgba(255, 255, 255, .13);
+    }
 
     .t-chk {
       width: 12px;
@@ -915,8 +1002,13 @@
     }
 
     @keyframes scanOCR {
-      from { left: -24%; }
-      to { left: 104%; }
+      from {
+        left: -24%;
+      }
+
+      to {
+        left: 104%;
+      }
     }
 
     .ocr-badge {
@@ -967,7 +1059,11 @@
       border: 1px solid rgba(255, 255, 255, .2);
     }
 
-    .m-meta { min-width: 0; flex: 1; }
+    .m-meta {
+      min-width: 0;
+      flex: 1;
+    }
+
     .m-meta b {
       display: block;
       font-size: 13px;
@@ -975,6 +1071,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .m-meta span {
       font-size: 10.5px;
       color: rgba(255, 255, 255, .58);
@@ -995,12 +1092,26 @@
       height: 30%;
       animation: eqMove .72s ease-in-out infinite alternate;
     }
-    .eq-bars i:nth-child(2) { animation-delay: -.28s; background: #ec4899; }
-    .eq-bars i:nth-child(3) { animation-delay: -.52s; background: var(--violet); }
-    .eq-bars i:nth-child(4) { animation-delay: -.18s; background: var(--red); }
+
+    .eq-bars i:nth-child(2) {
+      animation-delay: -.28s;
+      background: #ec4899;
+    }
+
+    .eq-bars i:nth-child(3) {
+      animation-delay: -.52s;
+      background: var(--violet);
+    }
+
+    .eq-bars i:nth-child(4) {
+      animation-delay: -.18s;
+      background: var(--red);
+    }
 
     @keyframes eqMove {
-      to { height: 100%; }
+      to {
+        height: 100%;
+      }
     }
 
     .m-prog {
@@ -1019,8 +1130,13 @@
     }
 
     @keyframes progAnim {
-      from { width: 18%; }
-      to { width: 92%; }
+      from {
+        width: 18%;
+      }
+
+      to {
+        width: 92%;
+      }
     }
 
     .m-ctls {
@@ -1030,6 +1146,7 @@
       font-size: 10px;
       color: rgba(255, 255, 255, .65);
     }
+
     .m-transport {
       display: flex;
       align-items: center;
@@ -1105,11 +1222,21 @@
       height: 25%;
       animation: waveTalk .58s ease-in-out infinite alternate;
     }
-    .voice-wave i:nth-child(2n) { animation-delay: -.22s; background: var(--violet); }
-    .voice-wave i:nth-child(3n) { animation-delay: -.4s; background: var(--sky); }
+
+    .voice-wave i:nth-child(2n) {
+      animation-delay: -.22s;
+      background: var(--violet);
+    }
+
+    .voice-wave i:nth-child(3n) {
+      animation-delay: -.4s;
+      background: var(--sky);
+    }
 
     @keyframes waveTalk {
-      to { height: 100%; }
+      to {
+        height: 100%;
+      }
     }
 
     .diff-box {
@@ -1182,11 +1309,20 @@
     .mn[data-s="shelf"] .sh-item {
       animation: popCard .55s var(--spring) backwards;
     }
-    .mn[data-s="shelf"] .sh-item:nth-child(2) { animation-delay: .12s; }
-    .mn[data-s="shelf"] .sh-item:nth-child(3) { animation-delay: .24s; }
+
+    .mn[data-s="shelf"] .sh-item:nth-child(2) {
+      animation-delay: .12s;
+    }
+
+    .mn[data-s="shelf"] .sh-item:nth-child(3) {
+      animation-delay: .24s;
+    }
 
     @keyframes popCard {
-      from { opacity: 0; transform: translateY(-20px) scale(.82); }
+      from {
+        opacity: 0;
+        transform: translateY(-20px) scale(.82);
+      }
     }
 
     .sh-thumb {
@@ -1247,8 +1383,17 @@
     }
 
     @keyframes dropZoneGlow {
-      0%, 100% { border-color: rgba(255, 255, 255, .28); background: rgba(255, 255, 255, .03); }
-      50% { border-color: rgba(34, 197, 94, .8); background: rgba(34, 197, 94, .12); }
+
+      0%,
+      100% {
+        border-color: rgba(255, 255, 255, .28);
+        background: rgba(255, 255, 255, .03);
+      }
+
+      50% {
+        border-color: rgba(34, 197, 94, .8);
+        background: rgba(34, 197, 94, .12);
+      }
     }
 
     /* Simulasi Kursor Menyeret File Masuk */
@@ -1268,10 +1413,26 @@
     }
 
     @keyframes dragToShelf {
-      0% { opacity: 0; transform: translate(26px, 28px); }
-      25% { opacity: 1; transform: translate(6px, 12px); }
-      65% { opacity: 1; transform: translate(-12px, -8px) scale(0.92); }
-      85%, 100% { opacity: 0; transform: translate(-14px, -12px) scale(0.7); }
+      0% {
+        opacity: 0;
+        transform: translate(26px, 28px);
+      }
+
+      25% {
+        opacity: 1;
+        transform: translate(6px, 12px);
+      }
+
+      65% {
+        opacity: 1;
+        transform: translate(-12px, -8px) scale(0.92);
+      }
+
+      85%,
+      100% {
+        opacity: 0;
+        transform: translate(-14px, -12px) scale(0.7);
+      }
     }
 
     /* 6. PRAYER & ANGEL HALO LAYER */
@@ -1303,8 +1464,13 @@
     }
 
     @keyframes haloFloat {
-      from { transform: translateY(0.5px); }
-      to { transform: translateY(-2.5px); }
+      from {
+        transform: translateY(0.5px);
+      }
+
+      to {
+        transform: translateY(-2.5px);
+      }
     }
 
     .pr-pill {
@@ -1349,7 +1515,9 @@
     }
 
     @keyframes sunArcDraw {
-      to { stroke-dashoffset: 56; }
+      to {
+        stroke-dashoffset: 56;
+      }
     }
 
     .pr-times {
@@ -1360,7 +1528,9 @@
       margin-top: 3px;
     }
 
-    .pr-times b { color: #fbbf24; }
+    .pr-times b {
+      color: #fbbf24;
+    }
 
     /* 7. POMODORO & MINI CALENDAR LAYER */
     .pomo-wrap {
@@ -1394,8 +1564,17 @@
     }
 
     @keyframes pomoBreathe {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(239, 68, 68, 0)); }
-      50% { transform: scale(1.06); filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.55)); }
+
+      0%,
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(239, 68, 68, 0));
+      }
+
+      50% {
+        transform: scale(1.06);
+        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.55));
+      }
     }
 
     .cal-widget-wrap {
@@ -1525,8 +1704,15 @@
     }
 
     @keyframes greenRipple {
-      0% { transform: scale(0.95); opacity: 0.85; }
-      100% { transform: scale(1.42); opacity: 0; }
+      0% {
+        transform: scale(0.95);
+        opacity: 0.85;
+      }
+
+      100% {
+        transform: scale(1.42);
+        opacity: 0;
+      }
     }
 
     .bat-tired-wrap {
@@ -1550,7 +1736,10 @@
     }
 
     @keyframes lowBolt {
-      to { transform: scale(1.06); box-shadow: 0 0 10px rgba(239, 68, 68, .75); }
+      to {
+        transform: scale(1.06);
+        box-shadow: 0 0 10px rgba(239, 68, 68, .75);
+      }
     }
 
     /* Mode Switcher Buttons */
@@ -1608,7 +1797,9 @@
     }
 
     /* ===== Sections ============================================================== */
-    section { padding: 96px 0 0; }
+    section {
+      padding: 96px 0 0;
+    }
 
     .sec-kicker {
       font-size: 12px;
@@ -1730,7 +1921,7 @@
       font-size: 13px;
     }
 
-    .tm-grid > div {
+    .tm-grid>div {
       padding: 11px 14px;
       text-align: right;
       color: #fff;
@@ -1885,14 +2076,18 @@
     }
 
     /* ===== FAQ =================================================================== */
-    .faq { max-width: 780px; }
+    .faq {
+      max-width: 780px;
+    }
 
     details {
       border-top: 1px solid var(--line);
       padding: 19px 0;
     }
 
-    details:last-of-type { border-bottom: 1px solid var(--line); }
+    details:last-of-type {
+      border-bottom: 1px solid var(--line);
+    }
 
     summary {
       cursor: pointer;
@@ -1905,7 +2100,9 @@
       gap: 20px;
     }
 
-    summary::-webkit-details-marker { display: none; }
+    summary::-webkit-details-marker {
+      display: none;
+    }
 
     summary::after {
       content: "+";
@@ -1915,7 +2112,9 @@
       transition: transform .25s;
     }
 
-    details[open] summary::after { transform: rotate(45deg); }
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
 
     details p {
       margin: 11px 0 0;
@@ -1979,21 +2178,41 @@
       gap: 16px;
     }
 
-    footer a:hover { color: var(--ink); }
+    footer a:hover {
+      color: var(--ink);
+    }
 
     @media (max-width: 860px) {
-      .bar nav { display: none; }
-      .features, .light { grid-template-columns: 1fr; gap: 28px; }
-      .sw-steps { grid-template-columns: repeat(2, 1fr); }
+      .bar nav {
+        display: none;
+      }
+
+      .features,
+      .light {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .sw-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 560px) {
-      .sw-steps { grid-template-columns: 1fr; }
-      .hero { padding-top: 44px; }
+      .sw-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation: none !important;
         transition: none !important;
       }
@@ -2017,7 +2236,8 @@
           <a href="#install" data-i18n="nav_install">Cara Pasang</a>
           <a href="#faq">FAQ</a>
           <a href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">GitHub</a>
-          <a class="nav-dl" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip" data-i18n="nav_dl">Download ZIP</a>
+          <a class="nav-dl" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip"
+            data-i18n="nav_dl">Download ZIP</a>
         </nav>
         <div class="lang" role="group" aria-label="Bahasa" data-l="id">
           <i class="lang-thumb" aria-hidden="true"></i>
@@ -2033,28 +2253,33 @@
     <div class="wrap hero">
       <div class="badge">
         <img src="APIW.png" alt="Apiw">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero_badge">Gratis &amp; Open Source &middot; Windows 10 &amp; 11 (64-bit)</span>
       </div>
-      <h1><span data-i18n="hero_h1_1">Bagian atas layar Windows Anda,</span> <span class="accent" data-i18n="hero_h1_2">lebih hidup &amp; produktif.</span></h1>
-      <p class="lede" data-i18n="hero_lede">Apiw mengubah tepi atas layar Windows menjadi living notch interaktif dengan maskot beruang berjaket merah, musik &amp; lirik sinkron LRCLIB, TodoList + Scan OCR, File Shelf, jadwal sholat, dan asisten dokumen AI.</p>
+      <h1><span data-i18n="hero_h1_1">Bagian atas layar Windows Anda,</span> <span class="accent"
+          data-i18n="hero_h1_2">lebih hidup &amp; produktif.</span></h1>
+      <p class="lede" data-i18n="hero_lede">Apiw mengubah tepi atas layar Windows menjadi living notch interaktif dengan
+        maskot beruang berjaket merah, musik &amp; lirik sinkron LRCLIB, TodoList + Scan OCR, File Shelf, jadwal sholat,
+        dan asisten dokumen AI.</p>
       <div class="cta">
         <div class="cta-row">
           <a class="btn" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
             </svg>
             <span>Download ApiwSetup.zip</span>
           </a>
           <a class="btn btn-ghost" href="https://github.com/justnaaa/Apiw" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
             <span data-i18n="hero_gh">Repositori GitHub</span>
           </a>
         </div>
-        <small data-i18n="hero_meta">Berisi 1 file <code>ApiwSetup.exe</code> &middot; Semua fitur terbuka tanpa langganan &middot; Tanpa iklan</small>
+        <small data-i18n="hero_meta">Berisi 1 file <code>ApiwSetup.exe</code> &middot; Semua fitur terbuka tanpa
+          langganan &middot; Tanpa iklan</small>
       </div>
     </div>
 
@@ -2085,26 +2310,38 @@
                     <span class="hdr-title" id="hdrTitle">Todo<em>List</em></span>
                     <span class="hdr-center">
                       <span class="ring-bolt" title="Charging">
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2"/></svg>
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2" />
+                        </svg>
                       </span>
                       <span class="js-date">Rab 11 Nov 2026</span>
                       <b class="js-time">19:45</b>
                     </span>
                     <span class="hdr-right">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                          d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                      </svg>
                     </span>
                   </div>
 
                   <!-- Chrome Carousel Arrows (< / >) + 6 Page Dots -->
                   <div class="ly l-chrome">
                     <span class="notch-arrow prev" id="notchPrev" title="Slide sebelumnya">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.6" stroke-linecap="round">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
                     </span>
                     <span class="notch-arrow next" id="notchNext" title="Slide berikutnya">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.6" stroke-linecap="round">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
                     </span>
                     <div class="notch-dots" id="notchDots">
-                      <i data-m="music"></i><i data-m="pomo"></i><i data-m="prayer"></i><i data-m="shelf"></i><i class="on" data-m="todo"></i><i data-m="docs"></i>
+                      <i data-m="music"></i><i data-m="pomo"></i><i data-m="prayer"></i><i data-m="shelf"></i><i
+                        class="on" data-m="todo"></i><i data-m="docs"></i>
                     </div>
                   </div>
 
@@ -2112,7 +2349,9 @@
                   <div class="ly l-idle">
                     <div class="idle-left">
                       <span class="ring-bolt" title="Charging">
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2"/></svg>
+                        <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                          <polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2" />
+                        </svg>
                       </span>
                       <span class="idle-bear-badge">
                         <svg class="apiw-bear-svg" width="34" height="22" viewBox="0 -2 88 49" aria-hidden="true">
@@ -2120,13 +2359,20 @@
                           <circle cx="59" cy="11" r="6.8" fill="#e2e8f0" />
                           <path d="M 22 44 C 21 30 24 10 44 10 C 64 10 67 30 66 44 Z" fill="#dc2626" />
                           <ellipse cx="44" cy="28" rx="15.5" ry="13.5" fill="#ffffff" />
-                          <line x1="40" y1="39.5" x2="40" y2="45" stroke="#fecaca" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
-                          <line x1="48" y1="39.5" x2="48" y2="45" stroke="#fecaca" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
-                          <path d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z" fill="#070a12" />
-                          <rect class="apiw-bear-eye" x="38.2" y="23.8" width="4.2" height="8.2" rx="2.1" fill="#ffffff" />
-                          <rect class="apiw-bear-eye" x="45.6" y="23.8" width="4.2" height="8.2" rx="2.1" fill="#ffffff" />
+                          <line x1="40" y1="39.5" x2="40" y2="45" stroke="#fecaca" stroke-width="1.3"
+                            stroke-linecap="round" opacity="0.7" />
+                          <line x1="48" y1="39.5" x2="48" y2="45" stroke="#fecaca" stroke-width="1.3"
+                            stroke-linecap="round" opacity="0.7" />
+                          <path
+                            d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z"
+                            fill="#070a12" />
+                          <rect class="apiw-bear-eye" x="38.2" y="23.8" width="4.2" height="8.2" rx="2.1"
+                            fill="#ffffff" />
+                          <rect class="apiw-bear-eye" x="45.6" y="23.8" width="4.2" height="8.2" rx="2.1"
+                            fill="#ffffff" />
                           <g class="apiw-bear-wave">
-                            <path d="M 63 36 Q 73 30 75 21" fill="none" stroke="#dc2626" stroke-width="6.5" stroke-linecap="round" />
+                            <path d="M 63 36 Q 73 30 75 21" fill="none" stroke="#dc2626" stroke-width="6.5"
+                              stroke-linecap="round" />
                             <circle cx="75.5" cy="19" r="3.6" fill="#ffffff" />
                           </g>
                         </svg>
@@ -2143,18 +2389,35 @@
                         <div class="todo-hero-top">
                           <span class="todo-count" id="demoTodoCount">2/3</span>
                           <span class="todo-icon-circle" title="Filter">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2">
+                              <rect x="3" y="4" width="18" height="18" rx="3" />
+                              <line x1="16" y1="2" x2="16" y2="6" />
+                              <line x1="8" y1="2" x2="8" y2="6" />
+                              <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
                           </span>
                           <span class="todo-icon-circle on" title="Scan OCR File / Gambar">
-                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                              <polyline points="14 2 14 8 20 8" />
+                              <line x1="9" y1="13" x2="15" y2="13" />
+                              <line x1="9" y1="17" x2="13" y2="17" />
+                            </svg>
                           </span>
-                          <button type="button" class="todo-clear-btn" id="demoClearTodo" title="Hapus semua task selesai">Clear</button>
+                          <button type="button" class="todo-clear-btn" id="demoClearTodo"
+                            title="Hapus semua task selesai">Clear</button>
                         </div>
                         <div class="todo-sub-lbl">Task Done Today</div>
                         <div class="todo-pills-row">
                           <button type="button" class="todo-add-btn" id="demoAddTodo">+ Add Task</button>
                           <button type="button" class="todo-add-btn" style="opacity:.82">
-                            <svg width="9.5" height="9.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            <svg width="9.5" height="9.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2.2">
+                              <path d="M12 20h9" />
+                              <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                            </svg>
                             Edit Task
                           </button>
                         </div>
@@ -2162,22 +2425,35 @@
                       <div class="todo-right-card">
                         <div class="todo-list" id="demoTodoList">
                           <div class="t-item done">
-                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="3.5">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg></span>
                             <span>Revisi laporan bab 4</span>
                           </div>
                           <div class="t-item done">
-                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="3.5">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg></span>
                             <span>Kirim file desain UI</span>
                           </div>
                           <div class="t-item">
-                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+                            <span class="t-chk"><svg width="8" height="8" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="3.5">
+                                <polyline points="20 6 9 17 4 12" />
+                              </svg></span>
                             <span>Push rilis ke GitHub</span>
                           </div>
                         </div>
                         <div class="ocr-card">
                           <span class="ocr-scanline"></span>
                           <div class="ocr-badge">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7V4h3M20 7V4h-3M4 17v3h3M20 17v3h-3"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2.4">
+                              <path d="M4 7V4h3M20 7V4h-3M4 17v3h3M20 17v3h-3" />
+                              <line x1="7" y1="12" x2="17" y2="12" />
+                            </svg>
                             <span>Scan OCR &middot; Tugas.pdf</span>
                           </div>
                           <div class="ocr-lines">+3 dilist 1 per 1</div>
@@ -2200,15 +2476,27 @@
                         </div>
                         <div class="m-prog"><i></i></div>
                         <div class="m-ctls">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--red)" title="LRCLIB Split ON"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--red)" title="LRCLIB Split ON">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                          </svg>
                           <span style="font-size:9px">02:14</span>
                           <span class="m-transport">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z"/></svg>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M11 18V6l-8.5 6 8.5 6zm.5-6 8.5 6V6l-8.5 6z" />
+                            </svg>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                              <rect x="6" y="5" width="4" height="14" rx="1" />
+                              <rect x="14" y="5" width="4" height="14" rx="1" />
+                            </svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z" />
+                            </svg>
                           </span>
                           <span style="font-size:9px">-01:12</span>
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+                          </svg>
                         </div>
                       </div>
                       <div class="m-LyricsBox">
@@ -2227,7 +2515,8 @@
                   <div class="ly l-docs">
                     <div class="docs-wrap">
                       <div class="voice-box">
-                        <img src="APIW.png" alt="Apiw AI" style="width:32px;height:32px;border-radius:10px;object-fit:cover">
+                        <img src="APIW.png" alt="Apiw AI"
+                          style="width:32px;height:32px;border-radius:10px;object-fit:cover">
                         <div class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
                         <span style="font-size:9px;color:#fca5a5;font-weight:700">Call &middot; Alt+Space</span>
                         <span style="font-size:8px;color:#c4b5fd">+ Learn PDF/DOCX</span>
@@ -2238,10 +2527,12 @@
                           <span style="color:#86efac">Export .DOCX</span>
                         </div>
                         <p>
-                          Sistem ini <span class="diff-del">dibuat supaya bisa</span> <span class="diff-ins">dirancang untuk</span> menganalisis dokumen PDF &amp; Word secara otomatis.
+                          Sistem ini <span class="diff-del">dibuat supaya bisa</span> <span class="diff-ins">dirancang
+                            untuk</span> menganalisis dokumen PDF &amp; Word secara otomatis.
                         </p>
                         <div style="display:flex;gap:5px;font-size:8.8px;margin-top:4px">
-                          <span style="background:rgba(34,197,94,.22);color:#86efac;padding:2px 7px;border-radius:5px;font-weight:700">Apply</span>
+                          <span
+                            style="background:rgba(34,197,94,.22);color:#86efac;padding:2px 7px;border-radius:5px;font-weight:700">Apply</span>
                           <span style="background:rgba(255,255,255,.1);padding:2px 7px;border-radius:5px">Diff</span>
                           <span style="background:rgba(255,255,255,.1);padding:2px 7px;border-radius:5px">Undo</span>
                         </div>
@@ -2255,33 +2546,52 @@
                       <div class="sh-cards">
                         <div class="sh-item">
                           <div class="sh-thumb">
-                            <svg width="46" height="28" viewBox="0 0 46 28"><rect x="3" y="4" width="18" height="10" rx="2" fill="#38bdf8" opacity=".45"/><rect x="24" y="4" width="18" height="20" rx="2" fill="#ef4444" opacity=".4"/><rect x="3" y="17" width="18" height="7" rx="2" fill="#94a3b8" opacity=".35"/></svg>
+                            <svg width="46" height="28" viewBox="0 0 46 28">
+                              <rect x="3" y="4" width="18" height="10" rx="2" fill="#38bdf8" opacity=".45" />
+                              <rect x="24" y="4" width="18" height="20" rx="2" fill="#ef4444" opacity=".4" />
+                              <rect x="3" y="17" width="18" height="7" rx="2" fill="#94a3b8" opacity=".35" />
+                            </svg>
                           </div>
                           <b>SS_1942.png</b>
                           <small>Auto-SS</small>
                         </div>
                         <div class="sh-item">
                           <div class="sh-ico">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                              <polyline points="14 2 14 8 20 8" />
+                            </svg>
                           </div>
                           <b>Skripsi.docx</b>
                           <small>1.8 MB</small>
                         </div>
                         <div class="sh-item">
                           <div class="sh-ico">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2">
+                              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                            </svg>
                           </div>
                           <b>Assets_UI</b>
                           <small>Folder</small>
                         </div>
                       </div>
                       <div class="sh-drop">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <polyline points="7 10 12 15 17 10" />
+                          <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
                         <b>Drop files here</b>
                         <span style="font-size:8.2px;color:rgba(255,255,255,.55)">Seret keluar kapan saja</span>
                         <div class="sh-cursor" aria-hidden="true">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5"><path d="M5 3l14 9-6 1.5L10 20z"/></svg>
-                          <span style="background:#ef4444;color:#fff;font-size:8px;font-weight:700;padding:1px 4px;border-radius:4px">PDF</span>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5">
+                            <path d="M5 3l14 9-6 1.5L10 20z" />
+                          </svg>
+                          <span
+                            style="background:#ef4444;color:#fff;font-size:8px;font-weight:700;padding:1px 4px;border-radius:4px">PDF</span>
                         </div>
                       </div>
                     </div>
@@ -2294,8 +2604,10 @@
                         <div class="mascot-halo-wrap">
                           <svg class="apiw-bear-svg" width="60" height="46" viewBox="0 -6 88 52" aria-hidden="true">
                             <g class="halo-ring">
-                              <ellipse cx="44" cy="1.8" rx="14.5" ry="3.6" fill="none" stroke="#facc15" stroke-width="2.6" />
-                              <ellipse cx="44" cy="1.8" rx="14.5" ry="3.6" fill="none" stroke="#fef9c3" stroke-width="0.9" opacity="0.9" />
+                              <ellipse cx="44" cy="1.8" rx="14.5" ry="3.6" fill="none" stroke="#facc15"
+                                stroke-width="2.6" />
+                              <ellipse cx="44" cy="1.8" rx="14.5" ry="3.6" fill="none" stroke="#fef9c3"
+                                stroke-width="0.9" opacity="0.9" />
                               <circle cx="26" cy="1.2" r="1.1" fill="#fef08a" />
                               <circle cx="62" cy="1.2" r="1.1" fill="#fef08a" />
                             </g>
@@ -2303,11 +2615,17 @@
                             <circle cx="59" cy="11" r="6.8" fill="#e2e8f0" />
                             <path d="M 22 44 C 21 30 24 10 44 10 C 64 10 67 30 66 44 Z" fill="#dc2626" />
                             <ellipse cx="44" cy="28" rx="15.5" ry="13.5" fill="#ffffff" />
-                            <line x1="40" y1="39.5" x2="40" y2="45" stroke="#fecaca" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
-                            <line x1="48" y1="39.5" x2="48" y2="45" stroke="#fecaca" stroke-width="1.3" stroke-linecap="round" opacity="0.7" />
-                            <path d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z" fill="#070a12" />
-                            <rect class="apiw-bear-eye" x="38.2" y="23.8" width="4.2" height="8.2" rx="2.1" fill="#ffffff" />
-                            <rect class="apiw-bear-eye" x="45.6" y="23.8" width="4.2" height="8.2" rx="2.1" fill="#ffffff" />
+                            <line x1="40" y1="39.5" x2="40" y2="45" stroke="#fecaca" stroke-width="1.3"
+                              stroke-linecap="round" opacity="0.7" />
+                            <line x1="48" y1="39.5" x2="48" y2="45" stroke="#fecaca" stroke-width="1.3"
+                              stroke-linecap="round" opacity="0.7" />
+                            <path
+                              d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z"
+                              fill="#070a12" />
+                            <rect class="apiw-bear-eye" x="38.2" y="23.8" width="4.2" height="8.2" rx="2.1"
+                              fill="#ffffff" />
+                            <rect class="apiw-bear-eye" x="45.6" y="23.8" width="4.2" height="8.2" rx="2.1"
+                              fill="#ffffff" />
                           </svg>
                         </div>
                         <div class="pr-info">
@@ -2325,8 +2643,10 @@
                             </linearGradient>
                           </defs>
                           <line x1="8" y1="58" x2="192" y2="58" stroke="rgba(255,255,255,.15)" stroke-width="1" />
-                          <path d="M 12 58 Q 100 -12 188 58" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2" stroke-dasharray="4 4" />
-                          <path class="sun-arc-fill" d="M 12 58 Q 100 -12 188 58" fill="none" stroke="url(#sunGrad)" stroke-width="3" stroke-linecap="round" />
+                          <path d="M 12 58 Q 100 -12 188 58" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"
+                            stroke-dasharray="4 4" />
+                          <path class="sun-arc-fill" d="M 12 58 Q 100 -12 188 58" fill="none" stroke="url(#sunGrad)"
+                            stroke-width="3" stroke-linecap="round" />
                           <circle cx="152" cy="36" r="5.5" fill="#fbbf24" filter="drop-shadow(0 0 8px #f59e0b)" />
                         </svg>
                         <div class="pr-times">
@@ -2367,7 +2687,9 @@
                     <div class="bat-wrap">
                       <div class="bat-side">
                         <div class="bat-icon-chg">
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2"/></svg>
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="13 2 5 14 11 14 10 22 19 10 13 10 13 2" />
+                          </svg>
                         </div>
                         <div>
                           <b style="font-size:12px;color:#86efac">Charging &middot; 85%</b>
@@ -2381,13 +2703,16 @@
                             <circle cx="59" cy="11" r="6.8" fill="#e2e8f0" />
                             <path d="M 22 44 C 21 30 24 10 44 10 C 64 10 67 30 66 44 Z" fill="#dc2626" />
                             <ellipse cx="44" cy="28" rx="15.5" ry="13.5" fill="#ffffff" />
-                            <path d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z" fill="#070a12" />
+                            <path
+                              d="M 32 27 C 32 20 38 19.5 44 21.5 C 50 19.5 56 20 56 27 C 56 33.5 51 36 44 36 C 37 36 32 33.5 32 27 Z"
+                              fill="#070a12" />
                             <rect x="38.2" y="25.5" width="4.2" height="5.5" rx="1.8" fill="#fb923c" />
                             <rect x="45.6" y="25.5" width="4.2" height="5.5" rx="1.8" fill="#fb923c" />
                             <rect x="37.4" y="22.8" width="5.8" height="4.8" rx="1.6" fill="#070a12" />
                             <rect x="44.8" y="22.8" width="5.8" height="4.8" rx="1.6" fill="#070a12" />
                             <g>
-                              <rect x="3" y="16" width="14" height="22" rx="3" fill="#18181b" stroke="#f87171" stroke-width="1.5" />
+                              <rect x="3" y="16" width="14" height="22" rx="3" fill="#18181b" stroke="#f87171"
+                                stroke-width="1.5" />
                               <rect x="7.5" y="13.5" width="5" height="2.5" rx="1" fill="#f87171" />
                               <rect x="5" y="31.5" width="10" height="4.5" rx="1" fill="#ef4444" />
                               <polygon points="11.2,19 6.8,26.5 10,26.5 8.8,32.5 13.5,24.8 10.2,24.8" fill="#fde047" />
@@ -2395,8 +2720,10 @@
                           </svg>
                         </div>
                         <div>
-                          <div style="display:flex;align-items:center"><span class="cas-pill">Cas!</span><b style="font-size:11.5px;color:#fca5a5">&le; 20%</b></div>
-                          <span style="display:block;font-size:8.8px;color:rgba(255,255,255,.68)">Ekspresi Lelah Aktif</span>
+                          <div style="display:flex;align-items:center"><span class="cas-pill">Cas!</span><b
+                              style="font-size:11.5px;color:#fca5a5">&le; 20%</b></div>
+                          <span style="display:block;font-size:8.8px;color:rgba(255,255,255,.68)">Ekspresi Lelah
+                            Aktif</span>
                         </div>
                       </div>
                     </div>
@@ -2414,10 +2741,13 @@
         <div class="try" role="group" aria-label="Pilih mode pratinjau notch">
           <button type="button" data-s="idle" aria-pressed="false" data-i18n="m_idle">Istirahat</button>
           <button type="button" data-s="todo" aria-pressed="true" data-i18n="m_todo">TodoList + OCR</button>
-          <button type="button" data-s="music" aria-pressed="false" data-i18n="m_music">Musik &amp; Lirik LRCLIB</button>
+          <button type="button" data-s="music" aria-pressed="false" data-i18n="m_music">Musik &amp; Lirik
+            LRCLIB</button>
           <button type="button" data-s="docs" aria-pressed="false" data-i18n="m_docs">Document Studio AI</button>
-          <button type="button" data-s="shelf" aria-pressed="false" data-i18n="m_shelf">File Shelf &amp; Auto-SS</button>
-          <button type="button" data-s="prayer" aria-pressed="false" data-i18n="m_prayer">Sholat &amp; Halo Emas</button>
+          <button type="button" data-s="shelf" aria-pressed="false" data-i18n="m_shelf">File Shelf &amp;
+            Auto-SS</button>
+          <button type="button" data-s="prayer" aria-pressed="false" data-i18n="m_prayer">Sholat &amp; Halo
+            Emas</button>
           <button type="button" data-s="pomo" aria-pressed="false" data-i18n="m_pomo">Kalender &amp; Fokus</button>
           <button type="button" data-s="battery" aria-pressed="false" data-i18n="m_battery">Status Baterai</button>
         </div>
@@ -2429,66 +2759,104 @@
     <section id="fitur" class="wrap">
       <div class="sec-kicker" data-i18n="f_kicker">Fitur Unggulan</div>
       <h2 class="sec-title" data-i18n="f_title">Semua hal penting dalam satu tarikan kursor.</h2>
-      <p class="sec-lede" data-i18n="f_lede">Arahkan mouse ke notch di atas layar untuk membuka, atau geser 2 jari di touchpad untuk berpindah slide. Tanpa iklan dan tanpa fitur yang dikunci.</p>
+      <p class="sec-lede" data-i18n="f_lede">Arahkan mouse ke notch di atas layar untuk membuka, atau geser 2 jari di
+        touchpad untuk berpindah slide. Tanpa iklan dan tanpa fitur yang dikunci.</p>
 
       <div class="features">
         <div class="feature">
           <span class="app" style="--c:#ef4444">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="6" r="2.2"/><circle cx="17" cy="6" r="2.2"/><path d="M5 18c0-5 2.8-9 7-9s7 4 7 9"/><circle cx="10" cy="14" r="1" fill="currentColor"/><circle cx="14" cy="14" r="1" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="7" cy="6" r="2.2" />
+              <circle cx="17" cy="6" r="2.2" />
+              <path d="M5 18c0-5 2.8-9 7-9s7 4 7 9" />
+              <circle cx="10" cy="14" r="1" fill="currentColor" />
+              <circle cx="14" cy="14" r="1" fill="currentColor" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f1_t">Maskot Apiw Ekspresif</h3>
-            <p data-i18n="f1_d">Beruang putih berjaket merah yang berkedip saat idle, melambai saat ada notifikasi, memakai cincin halo emas saat waktu sholat, dan menampilkan ekspresi lelah saat baterai &le; 20%.</p>
+            <p data-i18n="f1_d">Beruang putih berjaket merah yang berkedip saat idle, melambai saat ada notifikasi,
+              memakai cincin halo emas saat waktu sholat, dan menampilkan ekspresi lelah saat baterai &le; 20%.</p>
           </div>
         </div>
 
         <div class="feature">
           <span class="app" style="--c:#ec4899">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f2_t">Musik &amp; Lirik Sinkron LRCLIB</h3>
-            <p data-i18n="f2_d">Terhubung otomatis ke Spotify, YouTube di Chrome/Edge, dan VLC melalui Windows GSMTC lengkap dengan lirik berjalan real-time dari LRCLIB.</p>
+            <p data-i18n="f2_d">Terhubung otomatis ke Spotify, YouTube di Chrome/Edge, dan VLC melalui Windows GSMTC
+              lengkap dengan lirik berjalan real-time dari LRCLIB.</p>
           </div>
         </div>
 
         <div class="feature">
           <span class="app" style="--c:#22c55e">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f3_t">TodoList + Scan OCR Pintar</h3>
-            <p data-i18n="f3_d">Klik <code>+ Add Task</code> untuk langsung mengetik di tempat, klik tugas mana saja untuk menandai selesai, tombol <code>Clear</code> sekali klik, atau drop gambar/PDF tugas untuk dilist otomatis 1 per 1.</p>
+            <p data-i18n="f3_d">Klik <code>+ Add Task</code> untuk langsung mengetik di tempat, klik tugas mana saja
+              untuk menandai selesai, tombol <code>Clear</code> sekali klik, atau drop gambar/PDF tugas untuk dilist
+              otomatis 1 per 1.</p>
           </div>
         </div>
 
         <div class="feature">
           <span class="app" style="--c:#8b5cf6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f4_t">Document Studio &amp; Voice AI</h3>
-            <p data-i18n="f4_d">Analisa dokumen Word/Excel/PDF/Scan, revisi teks langsung di Word &amp; Notepad (dengan pratinjau Diff &amp; Undo), export file <code>.docx</code> rapi, serta obrolan suara bahasa Indonesia.</p>
+            <p data-i18n="f4_d">Analisa dokumen Word/Excel/PDF/Scan, revisi teks langsung di Word &amp; Notepad (dengan
+              pratinjau Diff &amp; Undo), export file <code>.docx</code> rapi, serta obrolan suara bahasa Indonesia.</p>
           </div>
         </div>
 
         <div class="feature">
           <span class="app" style="--c:#f59e0b">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f5_t">Kalender Mini, Sholat &amp; Fokus</h3>
-            <p data-i18n="f5_d">Kartu kalender bulan berjalan, jadwal sholat offline (Kemenag, MWL, dll.) dengan kedipan emas 3&times;, pengingat minum air, serta timer fokus Pomodoro.</p>
+            <p data-i18n="f5_d">Kartu kalender bulan berjalan, jadwal sholat offline (Kemenag, MWL, dll.) dengan kedipan
+              emas 3&times;, pengingat minum air, serta timer fokus Pomodoro.</p>
           </div>
         </div>
 
         <div class="feature">
           <span class="app" style="--c:#38bdf8">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
+              <path
+                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+            </svg>
           </span>
           <div>
             <h3 data-i18n="f6_t">File Shelf &amp; Auto Screenshot</h3>
-            <p data-i18n="f6_d">Drop file atau folder ke dalam notch untuk disimpan sementara, seret keluar kapan saja ke aplikasi lain, ditambah pratinjau otomatis 2–3 screenshot terbaru.</p>
+            <p data-i18n="f6_d">Drop file atau folder ke dalam notch untuk disimpan sementara, seret keluar kapan saja
+              ke aplikasi lain, ditambah pratinjau otomatis 2–3 screenshot terbaru.</p>
           </div>
         </div>
       </div>
@@ -2498,10 +2866,12 @@
     <section id="performa" class="wrap">
       <div class="sec-kicker" data-i18n="p_kicker">Ringan &amp; Terbuka</div>
       <h2 class="sec-title" data-i18n="p_title">Dirancang hemat resource, 100% tanpa langganan.</h2>
-      <p class="sec-lede" data-i18n="p_lede">Seluruh fitur utama berjalan secara lokal di perangkat Anda tanpa membebani sistem dan tanpa keharusan membuat akun.</p>
+      <p class="sec-lede" data-i18n="p_lede">Seluruh fitur utama berjalan secara lokal di perangkat Anda tanpa membebani
+        sistem dan tanpa keharusan membuat akun.</p>
 
       <div class="light">
-        <div class="tm" role="img" aria-label="Simulasi Windows Task Manager memperlihatkan proses Apiw.exe yang hemat resource">
+        <div class="tm" role="img"
+          aria-label="Simulasi Windows Task Manager memperlihatkan proses Apiw.exe yang hemat resource">
           <div class="tm-title">
             <div>Processes &middot; Windows Task Manager</div>
             <span data-i18n="tm_status">&bull; Berjalan Hemat</span>
@@ -2516,19 +2886,24 @@
             <div class="v hi js-ram" data-to="42.4">42.4 MB</div>
             <div class="v">0 Mbps</div>
           </div>
-          <div class="tm-note" data-i18n="tm_note">Seluruh fitur inti siap jalan langsung di Windows 10/11 64-bit lewat <code>ApiwSetup.zip</code> tanpa instal Node.js manual.</div>
+          <div class="tm-note" data-i18n="tm_note">Seluruh fitur inti siap jalan langsung di Windows 10/11 64-bit lewat
+            <code>ApiwSetup.zip</code> tanpa instal Node.js manual.</div>
         </div>
 
         <div>
           <div class="stats">
             <div class="stat"><b>100%</b><span data-i18n="st_1">Gratis &amp; Open Source</span></div>
             <div class="stat"><b>0%</b><span data-i18n="st_2">Iklan &amp; Pelacakan</span></div>
-            <div class="stat"><b data-i18n="st_3_v">Lokal</b><span data-i18n="st_3">Penyimpanan Data &amp; Kunci</span></div>
+            <div class="stat"><b data-i18n="st_3_v">Lokal</b><span data-i18n="st_3">Penyimpanan Data &amp; Kunci</span>
+            </div>
           </div>
           <ul class="why-light">
-            <li data-i18n="why_1"><b>Semua fitur terbuka.</b> Tidak ada versi Pro berbayar—semua widget, tema, OCR, dan asisten dokumen langsung dapat digunakan.</li>
-            <li data-i18n="why_2"><b>Tanpa API key tetap jalan.</b> Musik, lirik LRCLIB, TodoList, OCR lokal, Shelf, Pomodoro, Kalender, dan jadwal Sholat berjalan penuh secara offline/lokal.</li>
-            <li data-i18n="why_3"><b>Lokal &amp; aman.</b> API key AI kosong secara bawaan (<code>""</code>) dan hanya disimpan di komputer Anda saat Anda mengisinya untuk memakai Gemini/OpenAI.</li>
+            <li data-i18n="why_1"><b>Semua fitur terbuka.</b> Tidak ada versi Pro berbayar—semua widget, tema, OCR, dan
+              asisten dokumen langsung dapat digunakan.</li>
+            <li data-i18n="why_2"><b>Tanpa API key tetap jalan.</b> Musik, lirik LRCLIB, TodoList, OCR lokal, Shelf,
+              Pomodoro, Kalender, dan jadwal Sholat berjalan penuh secara offline/lokal.</li>
+            <li data-i18n="why_3"><b>Lokal &amp; aman.</b> API key AI kosong secara bawaan (<code>""</code>) dan hanya
+              disimpan di komputer Anda saat Anda mengisinya untuk memakai Gemini/OpenAI.</li>
           </ul>
         </div>
       </div>
@@ -2538,29 +2913,35 @@
     <section id="install" class="wrap">
       <div class="sec-kicker" data-i18n="i_kicker">Panduan Instalasi</div>
       <h2 class="sec-title" data-i18n="i_title">Dari pasang hingga hapus, serba praktis.</h2>
-      <p class="sec-lede" data-i18n="i_lede">Ekstrak, jalankan installer, dan Apiw langsung muncul di tepi atas layar Windows Anda.</p>
+      <p class="sec-lede" data-i18n="i_lede">Ekstrak, jalankan installer, dan Apiw langsung muncul di tepi atas layar
+        Windows Anda.</p>
 
       <div class="swp">
         <ol class="sw-steps">
           <li>
             <span class="sw-n">1</span>
             <b data-i18n="s1_t">Download &amp; Ekstrak ZIP</b>
-            <p data-i18n="s1_d">Unduh <code>ApiwSetup.zip</code> dari tombol di halaman ini, klik kanan lalu pilih <strong>Extract All</strong>. Di dalamnya hanya ada 1 file <code>ApiwSetup.exe</code>.</p>
+            <p data-i18n="s1_d">Unduh <code>ApiwSetup.zip</code> dari tombol di halaman ini, klik kanan lalu pilih
+              <strong>Extract All</strong>. Di dalamnya hanya ada 1 file <code>ApiwSetup.exe</code>.</p>
           </li>
           <li>
             <span class="sw-n">2</span>
             <b data-i18n="s2_t">Jalankan Installer</b>
-            <p data-i18n="s2_d">Klik dua kali <code>ApiwSetup.exe</code>. Jika muncul layar biru Windows SmartScreen, klik <strong>More info &rarr; Run anyway</strong> untuk melanjutkan.</p>
+            <p data-i18n="s2_d">Klik dua kali <code>ApiwSetup.exe</code>. Jika muncul layar biru Windows SmartScreen,
+              klik <strong>More info &rarr; Run anyway</strong> untuk melanjutkan.</p>
           </li>
           <li>
             <span class="sw-n">3</span>
             <b data-i18n="s3_t">Kustomisasi &amp; AI</b>
-            <p data-i18n="s3_d">Klik kanan ikon Apiw di System Tray &rarr; <strong>Settings</strong>. Untuk fitur AI Gemini/OpenAI, masukkan API key pribadi Anda di tab <strong>AI &amp; Voice</strong>.</p>
+            <p data-i18n="s3_d">Klik kanan ikon Apiw di System Tray &rarr; <strong>Settings</strong>. Untuk fitur AI
+              Gemini/OpenAI, masukkan API key pribadi Anda di tab <strong>AI &amp; Voice</strong>.</p>
           </li>
           <li>
             <span class="sw-n">&times;</span>
             <b data-i18n="s4_t">Uninstall Bersih</b>
-            <p data-i18n="s4_d">Tutup Apiw dari System Tray &rarr; <strong>Quit</strong>, buka <strong>Windows Settings &rarr; Apps &rarr; Installed apps</strong>, cari <strong>Apiw</strong> lalu klik <strong>Uninstall</strong>.</p>
+            <p data-i18n="s4_d">Tutup Apiw dari System Tray &rarr; <strong>Quit</strong>, buka <strong>Windows Settings
+                &rarr; Apps &rarr; Installed apps</strong>, cari <strong>Apiw</strong> lalu klik
+              <strong>Uninstall</strong>.</p>
           </li>
         </ol>
       </div>
@@ -2573,19 +2954,27 @@
 
       <details open>
         <summary data-i18n="q1_t">Apakah wajib memiliki API key untuk memakai Apiw?</summary>
-        <p data-i18n="q1_d">Tidak wajib. Fitur musik, lirik sinkron LRCLIB, TodoList + OCR lokal, File Shelf, Pomodoro, Kalender, jadwal Sholat, serta animasi maskot berjalan langsung tanpa API key. API key hanya dibutuhkan jika Anda ingin memakai asisten dokumen &amp; suara berbasis AI Gemini/OpenAI.</p>
+        <p data-i18n="q1_d">Tidak wajib. Fitur musik, lirik sinkron LRCLIB, TodoList + OCR lokal, File Shelf, Pomodoro,
+          Kalender, jadwal Sholat, serta animasi maskot berjalan langsung tanpa API key. API key hanya dibutuhkan jika
+          Anda ingin memakai asisten dokumen &amp; suara berbasis AI Gemini/OpenAI.</p>
       </details>
       <details>
         <summary data-i18n="q2_t">Apakah API key dan dokumen saya aman?</summary>
-        <p data-i18n="q2_d">Sangat aman. Di dalam paket installer maupun repositori GitHub, API key selalu kosong (<code>""</code>). Saat Anda mengisi API key sendiri, kunci hanya tersimpan di folder konfigurasi lokal PC Anda (<code>%APPDATA%\apiw</code>) dan tidak pernah dikirim ke pihak lain selain penyedia AI yang Anda pilih.</p>
+        <p data-i18n="q2_d">Sangat aman. Di dalam paket installer maupun repositori GitHub, API key selalu kosong
+          (<code>""</code>). Saat Anda mengisi API key sendiri, kunci hanya tersimpan di folder konfigurasi lokal PC
+          Anda (<code>%APPDATA%\apiw</code>) dan tidak pernah dikirim ke pihak lain selain penyedia AI yang Anda pilih.
+        </p>
       </details>
       <details>
         <summary data-i18n="q3_t">Pemutar musik apa saja yang didukung?</summary>
-        <p data-i18n="q3_d">Semua pemutar yang terintegrasi dengan Windows Media Overlay (GSMTC), termasuk Spotify Desktop, Apple Music, VLC, serta YouTube atau SoundCloud yang diputar di Chrome, Edge, maupun Firefox.</p>
+        <p data-i18n="q3_d">Semua pemutar yang terintegrasi dengan Windows Media Overlay (GSMTC), termasuk Spotify
+          Desktop, Apple Music, VLC, serta YouTube atau SoundCloud yang diputar di Chrome, Edge, maupun Firefox.</p>
       </details>
       <details>
         <summary data-i18n="q4_t">Bagaimana cara menghapus Apiw beserta data lokalnya?</summary>
-        <p data-i18n="q4_d">Quit Apiw dari System Tray, lalu Uninstall lewat <strong>Windows Settings &rarr; Apps</strong>. Jika ingin membersihkan seluruh pengaturan dan daftar To-Do tersimpan, hapus juga folder <code>%APPDATA%\apiw</code>.</p>
+        <p data-i18n="q4_d">Quit Apiw dari System Tray, lalu Uninstall lewat <strong>Windows Settings &rarr;
+            Apps</strong>. Jika ingin membersihkan seluruh pengaturan dan daftar To-Do tersimpan, hapus juga folder
+          <code>%APPDATA%\apiw</code>.</p>
       </details>
     </section>
 
@@ -2597,7 +2986,8 @@
         <p data-i18n="cta_d">Ringan, interaktif, semua fitur terbuka tanpa langganan, dan tersedia gratis di GitHub.</p>
         <div class="cta-row">
           <a class="btn" href="https://github.com/justnaaa/Apiw/releases/latest/download/ApiwSetup.zip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
             </svg>
             <span>Download ApiwSetup.zip</span>
@@ -2612,7 +3002,8 @@
 
   <footer>
     <div class="wrap">
-      <span data-i18n="ft_left">&copy; 2026 Apiw &middot; Living Notch for Windows. Lirik didukung oleh <a href="https://lrclib.net" target="_blank" rel="noopener">LRCLIB</a>.</span>
+      <span data-i18n="ft_left">&copy; 2026 Apiw &middot; Living Notch for Windows. Lirik didukung oleh <a
+          href="https://lrclib.net" target="_blank" rel="noopener">LRCLIB</a>.</span>
       <span>
         <a href="#fitur" data-i18n="nav_features">Fitur</a> &nbsp;&middot;&nbsp;
         <a href="#install" data-i18n="nav_install">Cara Pasang</a> &nbsp;&middot;&nbsp;
