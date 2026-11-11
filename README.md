@@ -24,7 +24,7 @@
 - **Apiw Document Studio & Voice AI (Opsional):**
   - Membaca halaman aktif Word, Excel, Notepad, dan file PDF/PDF Scan/DOCX/XLSX.
   - Jendela **Document Studio** untuk analisa lengkap, perbandingan revisi (*Before → After*), **Undo**, dan **Export `.DOCX`**, plus ngobrol suara (`Alt+Space`).
-- **Today Widgets, Sholat, Air & Pomodoro:** Kalender mini bulan berjalan, animasi tipis saat mengecas, jadwal sholat offline, pengingat minum air, dan timer Pomodoro.
+- **Today Widgets, Sholat, Air & Pomodoro:** Kalender mini bulan berjalan, tampilan Sholat + Sun Arc & halo emas, pengingat minum air tiap 1 jam (minimal `250 ml`) dengan animasi Apiw minum air, serta timer Pomodoro (maks. 3 widget aktif).
 - **File Shelf & Auto Screenshot:** Drop file/folder dengan animasi masuk ke Shelf, pratinjau otomatis 2–5 screenshot terbaru, dan tombol **Copy All** untuk menyalin semuanya sekaligus.
 
 ---
